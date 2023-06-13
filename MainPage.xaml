@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:OpacityBug.Views"
+             x:Class="OpacityBug.MainPage"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowSpacing="0" IgnoreSafeArea="True" HorizontalOptions="Fill" VerticalOptions="Fill" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+
+        <Grid
+            Grid.Row="0"
+            VerticalOptions="Fill">
+
+            <StackLayout VerticalOptions="Center">
+                <Button
+                
+                x:Name="CounterBtn"
+                Text="Should be able to be clicked with Bottom Sheet open"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+                <Label
+                
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+                <Label
+                
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+            </StackLayout>
+        </Grid>
+
+        <StackLayout Grid.Row="1" HorizontalOptions="Fill">
+            <Button
+                x:Name="BottomSheetBtn"
+                Text="Toggle Bottom Sheet"
+                Clicked="OnBtnSheetClicked"
+                HorizontalOptions="Center" />
+        </StackLayout>
+
+
+        <!-- Bottom Sheet -->
+        <views:BottomSheet x:Name="BtmSheet" HeaderText="Bottom Sheet" 
+                           BodyStyle="{StaticResource bottom_sheetStyle}">
+
+            <views:BottomSheet.BottomSheetContent>
+                <StackLayout HorizontalOptions="Fill">
+                    <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                HorizontalOptions="Center" />
+
+                    <Label
+                Text="Hello, From Bottom Sheet!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+                </StackLayout>
+            </views:BottomSheet.BottomSheetContent>
+        </views:BottomSheet>
+    </Grid>
+</ContentPage>
+
